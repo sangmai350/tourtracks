@@ -1,13 +1,10 @@
 {
-  "name": "MBD-Automation",
-  "description": "Automation for MBD",
+  "name": "Tourtracks Automation",
+  "description": "Automation for Tourtracks",
   "version": "1.0.0",
   "author": "sangmai",
   "private": true,
   "scripts": {
-    "test": "protractor protractor.conf.js --browser='ie'",
-    "test:chrome-ff": "protractor protractor.conf.js --browser='chrome,firefox'",
-    "test:safari-ie": "protractor protractor.conf.js --browser='Safari,IE'",
     "test:local": "protractor protractor.local.conf.js",
     "webdriver-update": "webdriver-manager update"
   },
