@@ -1,0 +1,34 @@
+{
+  "name": "MBD-Automation",
+  "description": "Automation for MBD",
+  "version": "1.0.0",
+  "author": "sangmai",
+  "private": true,
+  "scripts": {
+    "test": "protractor protractor.conf.js --browser='ie'",
+    "test:chrome-ff": "protractor protractor.conf.js --browser='chrome,firefox'",
+    "test:safari-ie": "protractor protractor.conf.js --browser='Safari,IE'",
+    "test:local": "protractor protractor.local.conf.js",
+    "webdriver-update": "webdriver-manager update"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1"
+  },
+  "devDependencies": {
+    "@types/faker": "^4.1.2",
+    "@types/jasmine": "^2.8.6",
+    "@types/lodash": "^4.14.74",
+    "@types/node": "^9.6.0",
+    "aurelia-protractor-plugin": "^1.0.6",
+    "jasmine-spec-reporter": "^4.2.1",
+    "protractor": "^5.3.0",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2",
+    "webpack": "4.12.0",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
