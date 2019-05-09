@@ -8,7 +8,15 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['incognito', 'disable-extensions', 'ignore-certificate-errors', 'ignore-ssl-errors', 'start-maximized'],
+      args: ['incognito', 'disable-extensions', 'ignore-certificate-errors', 
+             '--no-sandbox', '--test-type=browser', 'ignore-ssl-errors', 'start-maximized'],
+      prefs: {
+        'download': {
+            'prompt_for_download': false,
+            'default_directory': '/tmp/downloads',
+            'directory_upgrade': true
+        }
+      }
     },
   },
   // {
@@ -22,7 +30,8 @@ exports.config = {
   },
   SELENIUM_PROMISE_MANAGER: false,
   specs: [
-    './e2e/specs/smoketests.e2e-spec.ts',
+    './e2e/specs/subscription.e2e-spec.ts',
+    // './e2e/specs/smoketests.e2e-spec.ts',
   ],
   onPrepare: function () {
     jasmine.getEnv().addReporter(new SpecReporter({

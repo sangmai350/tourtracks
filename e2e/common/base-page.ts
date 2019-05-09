@@ -383,7 +383,7 @@ export class BasePage extends BaseElement {
   }
 
   sleep(s: number) {
-    return browser.sleep(s * 1000);
+    return browser.driver.sleep(s * 1000);
   }
 
   async refreshPage() {
@@ -426,6 +426,40 @@ export class BasePage extends BaseElement {
       return false;
     }
   }
+
+  async getLatestDownloadedFile() {
+    if ((await browser.getCapabilities()).get('browserName') === 'chrome') {
+      await browser.driver.get('chrome://downloads/');
+      const items =
+        await browser.executeScript('return downloads.Manager.get().items_') as any[];
+      return items[0].file_name;
+    }
+  }
+
+  removeAllFilesInFolder(folderPath: string) {
+    const fs = require('fs');
+    const path = require('path');
+
+    fs.readdir(folderPath, (err, files) => {
+      if (err) {
+        throw err;
+      }
+
+      for (const file of files) {
+        fs.unlink(path.join(folderPath, file), err => {
+          if (err) {
+            throw err;
+          }
+        });
+      }
+    });
+  }
+
+  checkIfFileIsDownloaded(fileName: string) {
+    const filepath = `/tmp/downloads/${fileName}`;
+    const fs = require('fs');
+    browser.driver.wait(function() {
+        return fs.existsSync(filepath);
+    }, 30000);
+  }
 }
-
-

@@ -18,4 +18,19 @@ export class AbtractPage extends BasePage {
         await this.waitForElementVisible(BasePageUI.SIGN_OUT_LINK);
         await this.click(BasePageUI.SIGN_OUT_LINK);
     }
+
+    async clickLinkByItsText(label: string) {
+        await this.waitForElementVisible(BasePageUI.DYNAMIC_LINK_BY_TEXT, label);
+        await this.click(BasePageUI.DYNAMIC_LINK_BY_TEXT, label);
+    }
+
+    async clickButtonByItsText(label: string) {
+        await this.waitForElementVisible(BasePageUI.DYNAMIC_BUTTON_BY_TEXT, label);
+        await this.click(BasePageUI.DYNAMIC_BUTTON_BY_TEXT, label);
+    }
+
+    async isH1HeaderIsDisplayed(text: string) {
+        await this.waitForElementVisible(BasePageUI.DYNAMIC_H1_HEADER, text);
+        return await this.isElementDisplayed(BasePageUI.DYNAMIC_H1_HEADER, text);
+    }
 }

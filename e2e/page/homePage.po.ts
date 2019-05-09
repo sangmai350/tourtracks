@@ -37,6 +37,11 @@ export class HomePage extends AbtractPage {
         return await this.isElementDisplayed(HomePageUI.FREE_TRIAL_HEADER);
     }
 
+    async isArtistHomePageDisplayed() {
+        await this.waitForElementVisible(HomePageUI.ARTIST_HOME_HEADER);
+        return await this.isElementDisplayed(HomePageUI.ARTIST_HOME_HEADER);
+    }
+
     constructor() {
         super();
     }
